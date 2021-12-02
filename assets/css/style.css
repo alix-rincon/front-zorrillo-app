@@ -1,0 +1,30 @@
+.loginTitle{
+    font-family: sans-serif !important;
+    font-weight: bold !important;
+    color: #41a58d !important;
+}
+.iconLogin{
+    background-color: #00adac !important;
+}
+.buttonLogin{
+    background-color: #055160;
+    border-color: #055160;
+    color: #edf9eb;
+}
+
+.fontFamilyStyle{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.backgroundColor{
+    background-color: #edf9eb !important;
+}
+
+.fontStyleLabel{
+    font-size: smaller; 
+    color: #055160 
+}
+
+.colorStyleLink{
+    color: cadetblue
+}
