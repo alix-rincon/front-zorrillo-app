@@ -1,6 +1,6 @@
 function listProducts() {
     $.ajax({
-        url: "http://144.22.242.160:8080/api/fragance/all",
+        url: "http://localhost:8080/api/fragance/all",
         type: 'GET',
         dataType: 'json',
         success: function (response) {       

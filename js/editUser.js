@@ -46,7 +46,7 @@ function editUser() {
     }
     let dataToSend = JSON.stringify(params);
     $.ajax({
-        url:"http://144.22.242.160:8080/api/user/update",
+        url:"http://localhost:8080/api/user/update",
         data:dataToSend,
         type:'PUT',
         contentType:"application/JSON",
@@ -71,7 +71,7 @@ function cancel() {
 function validateEmail(){
     var email = $("#email").val();
     $.ajax({
-        url:"http://144.22.242.160:8080/api/user/emailexist/" + email,
+        url:"http://localhost:8080/api/user/emailexist/" + email,
         type:'GET',
         success: function(data) {
             if(data){
@@ -88,7 +88,7 @@ function getUser() {
     const urlParams = new URLSearchParams(window.location.search);
     const id_ = urlParams.get('id');
     $.ajax({
-        url: "http://144.22.242.160:8080/api/user/" + id_,
+        url: "http://localhost:8080/api/user/" + id_,
         type: 'GET',
         dataType: 'json',
         success: function (response_) {

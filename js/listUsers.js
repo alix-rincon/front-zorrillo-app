@@ -1,6 +1,6 @@
 function listUsers() {
     $.ajax({
-        url: "http://144.22.242.160:8080/api/user/all",
+        url: "http://localhost:8080/api/user/all",
         type: 'GET',
         dataType: 'json',
         success: function (response) {

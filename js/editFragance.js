@@ -44,7 +44,7 @@ function updateFragance() {
     }
     let dataToSend = JSON.stringify(params);
     $.ajax({
-        url:"http://144.22.242.160:8080/api/fragance/update",
+        url:"http://localhost:8080/api/fragance/update",
         data:dataToSend,
         type:'PUT',
         contentType:"application/JSON",
@@ -65,7 +65,7 @@ function cancel() {
 function validateEmail(){
     var email = $("#email").val();
     $.ajax({
-        url:"http://144.22.242.160:8080/api/user/emailexist/" + email,
+        url:"http://localhost:8080/api/user/emailexist/" + email,
         type:'GET',
         success: function(data) {
             if(data){
@@ -83,7 +83,7 @@ function getFragance() {
     const id = urlParams.get('id');
     
     $.ajax({
-        url: "http://144.22.242.160:8080/api/fragance/" + id,
+        url: "http://localhost:8080/api/fragance/" + id,
         type: 'GET',
         dataType: 'json',
         success: function (response_) {
