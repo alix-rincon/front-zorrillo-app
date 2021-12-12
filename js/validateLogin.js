@@ -28,9 +28,9 @@ function login(user, password){
             if(data.id==null){
                 document.getElementById("validationLogin").innerHTML = "Cuenta asociada a la combinación email/contraseña no existe";
             }else{
+                sessionStorage.setItem('_user',JSON.stringify(data));
                 localStorage.setItem('username',data.name);
-                window.location.href = 'index.html';
-              
+                window.location.href = 'index.html';              
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {

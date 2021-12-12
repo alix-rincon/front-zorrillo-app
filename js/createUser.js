@@ -30,10 +30,7 @@ function validateRequest(){
 }
 
 function addUser() {
-    var randomId = getRandomArbitrary(1,1000);
-
-    var params = {     
-        id: randomId,
+    var params = {   
         identification: $("#identification").val(),
         name: $("#name").val(),
         address: $("#address").val(),
@@ -57,10 +54,6 @@ function addUser() {
             console.log(jqXHR , textStatus, errorThrown);
         }
     });
-}
-
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
 }
 
 function cancel() {

@@ -59,9 +59,6 @@ function editUser() {
     });
 }
 
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
 
 function cancel() {
     window.location.href = "../../html/users/listUsers.html";
@@ -94,7 +91,6 @@ function getUser() {
         success: function (response_) {
             for (var key in response_) {
                 if (response_.hasOwnProperty(key)) {
-                    //console.log(key + " -> " + response_[key]);
                     $("#" + key).val(response_[key]);                   
                 }
             } 
