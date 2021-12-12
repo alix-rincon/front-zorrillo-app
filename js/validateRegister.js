@@ -33,24 +33,32 @@ function validar(){
 
     if(validate){
         validateEmail(email.value);
-        //registerUser();
     }
 
 }
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 function registerUser(){
+    var randomId = getRandomArbitrary(1,1000);
+
     var params = {     
+        id: randomId,
         name: $("#name").val(),
         email: $("#email").val(),
         password: $("#password").val()
     }
     let dataToSend = JSON.stringify(params);
+    console.log(dataToSend);
     $.ajax({
         url:"http://localhost:8080/api/user/new",
         data:dataToSend,
         type:'POST',
         contentType:"application/JSON",
         success: function (data) {
+            console.log(data);
             $("#formlogin input").val("");
             $("#toastMessage").html("<b>Correcto! </b> Usuario registrado correctamente");
             $('.toast').toast('show');
@@ -65,7 +73,7 @@ function registerUser(){
 
 function validateEmail(email){
     $.ajax({
-        url:"http://localhost:8080/api/user/" + email,
+        url:"http://localhost:8080/api/user/emailexist/" + email,
         type:'GET',
         success: function(data) {
             if(data){

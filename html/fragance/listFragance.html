@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" inte
+    grity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <script src="/js/listFragance.js"></script>
+   <script>
+        
+    $(document).ready(function() {
+        function validateUserAuthentication(){
+            if(localStorage.getItem("username") === null){
+               window.location.href="/login.html";
+            }
+        }
+        validateUserAuthentication();
+    });
+</script>
+<link rel="stylesheet" href="/assets/css/style.css">
+     
+</head>
+<body class="fontFamilyStyle backgroundColor">
+    <div class="container">     
+        <nav class="navbar backgroundColor navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/assets/img/logo1.png" alt="" style="width: 10%; margin-right: 25px;">	
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/html/users/listUsers.html">Usuarios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="listFragance.html">Productos</a>
+                  </li>
+                </ul>
+                <span class="navbar-text">
+                    <p><b><span class="glyphicon glyphicon-user" id="user-name"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login.html" style="color: rgb(28, 28, 247);">Cerrar Sesión</a></p>                    
+                </span>                         
+              </div>
+            </div>
+        </nav> <br>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/index.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Listado de Productos</li>
+            </ol>
+        </nav>
+        <div>
+            <div style="float: right;">
+                <div class="col-md-12 col-sm-1 pb-3" >
+                    <a href="createFragance.html" class="btn btn-outline-secondary" role="button">+ Registrar Producto</a>
+                </div>  
+            </div>                 
+        </div>
+        <legend><b>Listado de Productos</b></legend>
+        <br><br><div id="listado"></div>
+    </div>
+</body>
+<script>
+    document.getElementById("user-name").innerHTML = localStorage.getItem('username');
+</script>
+</html>
