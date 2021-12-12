@@ -1,9 +1,9 @@
 function listProducts() {
     $.ajax({
-        url: "http://localhost:8080/api/fragance/all",
+        url: "http://144.22.242.160:8080/api/fragance/all",
         type: 'GET',
         dataType: 'json',
-        success: function (response) {
+        success: function (response) {       
             listAllProducts(response);
         },
         error: function (xhr, status) {
@@ -33,7 +33,7 @@ function listAllProducts(items) {
                         <td>${items[i].category}</td>
                         <td>${items[i].presentation}</td>   
                         <td>${items[i].quantity}</td>   
-                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="detailClient(${items[i].reference})">Editar</td>   
+                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="detailClient('${items[i].reference}')">Editar</td>   
                         <td style="width:8%"><button type="button" class="btn btn-sm btn-outline-dark" onclick="deleteFragance('${items[i].reference}')">Eliminar</td>
                     </tr>
                 </tbody>
@@ -44,7 +44,7 @@ function listAllProducts(items) {
     $("#listado").html(tabla);
 }
 function detailClient(id){
-    window.location.href="../../views/client/detailClient.html?id="+id;
+    window.location.href="../../html/fragance/editFragance.html?id="+id;
 }
 
 function deleteFragance(id) {   

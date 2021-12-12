@@ -1,6 +1,6 @@
 function listUsers() {
     $.ajax({
-        url: "http://localhost:8080/api/user/all",
+        url: "http://144.22.242.160:8080/api/user/all",
         type: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -33,8 +33,8 @@ function listAllUsers(items) {
                         <td>${items[i].email}</td>
                         <td>${items[i].type}</td>   
                         <td>${items[i].zone}</td>   
-                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="detailClient(${items[i].id})">Editar</td>   
-                        <td style="width:8%"><button type="button" class="btn btn-sm btn-outline-dark" onclick="deleteClient(${items[i].id})">Eliminar</td>
+                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="editClient('${items[i].id}')">Editar</td>   
+                        <td style="width:8%"><button type="button" class="btn btn-sm btn-outline-dark" onclick="deleteClient('${items[i].id}')">Eliminar</td>
                     </tr>
                 </tbody>
         `;
@@ -43,8 +43,8 @@ function listAllUsers(items) {
     tabla += `</table>`;
     $("#listado").html(tabla);
 }
-function detailClient(id){
-    window.location.href="../../views/client/detailClient.html?id="+id;
+function editClient(id){
+    window.location.href="../../html/users/editUser.html?id="+id;
 }
 
 function deleteClient(id) { 
