@@ -14,12 +14,30 @@
     <script src="/js/createUser.js"></script>
     <script>        
         $( document ).ready(function() {
+            function validateRole(){
+              var _session = JSON.parse(sessionStorage.getItem("_user"));
+              if(_session.type == 'ASE'){
+                  $("#men4").show();
+              }
+              if(_session.type == 'COORD'){
+                  $("#men3").show();
+                  $("#men4").show();
+              }
+              if(_session.type == 'ADM'){
+                  $("#men1").show();
+                  $("#men2").show();
+                  $("#men3").show();
+                  $("#men4").show();
+              }
+            }
+                       
             function validateUserAuthentication(){
                 if(localStorage.getItem("username") === null){
                     window.location.href="/login.html";
                 }
             }
             validateUserAuthentication();
+            validateRole();
         });
     </script>
 </head>
