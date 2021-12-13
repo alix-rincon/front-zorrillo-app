@@ -83,7 +83,7 @@ function getFragance() {
     const id = urlParams.get('id');
     
     $.ajax({
-        url: "http://localhost:8080/api/fragance/" + id,
+        url: "http://144.22.242.160:8080/api/fragance/" + id,
         type: 'GET',
         dataType: 'json',
         success: function (response_) {

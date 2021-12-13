@@ -4,7 +4,8 @@ function listOrders() {
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            listAllOrders(response);
+            //console.log(response);
+           listAllOrders(response);
         },
         error: function (xhr, status) {
             console.log(status);
@@ -18,23 +19,24 @@ function listAllOrders(items) {
                     <tr>                        
                         <th scope="col">Identificación</th>
                         <th scope="col">Nombres</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Tipo de Usuario</th>
-                        <th scope="col">Zona</th>
-                        <th scope="col" colspan=2>Acciones</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">No. Pedido</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Pedido</th>
                     </tr>
                 </thead>`;
 
     for (var i = 0; i < items.length; i++) {
         tabla += `<tbody>
                     <tr>
-                        <th scope="row">${items[i].identification}</th>
-                        <td>${items[i].name}</td>
-                        <td>${items[i].email}</td>
-                        <td>${items[i].type}</td>   
-                        <td>${items[i].zone}</td>   
-                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="editClient('${items[i].id}')">Editar</td>   
-                        <td style="width:8%"><button type="button" class="btn btn-sm btn-outline-dark" onclick="deleteClient('${items[i].id}')">Eliminar</td>
+                        <th scope="row">${items[i].salesMan.identification}</th>
+                        <td>${items[i].salesMan.name}</td>
+                        <td>${items[i].salesMan.email}</td>
+                        <td>${items[i].registerDay}</td>   
+                        <td>${items[i].id}</td>
+                        <td>${items[i].status}</td>   
+                        <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="viewOrder('${items[i].id}')">Ver Pedido</td>
                     </tr>
                 </tbody>
         `;
@@ -43,8 +45,8 @@ function listAllOrders(items) {
     tabla += `</table>`;
     $("#listado").html(tabla);
 }
-function editClient(id){
-    window.location.href="../../html/users/editUser.html?id="+id;
+function viewOrder(id){
+    window.location.href="../../html/order/viewOrder.html?id="+id;
 }
 
 function deleteClient(id) { 
@@ -63,5 +65,5 @@ function deleteClient(id) {
     });
 }
 
-listUsers();
+listOrders();
 
