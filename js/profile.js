@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    let template = fetch('modal.html')
+    let template = fetch('/modal.html')
     .then(response => response.text())
     .then(data => {
         var d1 = document.body;

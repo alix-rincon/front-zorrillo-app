@@ -11,6 +11,9 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="/js/createOrder.js"></script>
+    <script src="/js/utilities.js"></script>
+    <script src="/js/profile.js"></script>
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
     <script>        
         $( document ).ready(function() {
             function validateRole(){
@@ -54,24 +57,22 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item" id="men1">
+                      <li class="nav-item" id="men1" style="display: none;">
                         <a class="nav-link" href="/html/users/listUsers.html">Usuarios</a>
                       </li>
                       <li class="nav-item" id="men2" style="display: none;">
                         <a class="nav-link" href="/html/fragance/listFragance.html">Productos</a>
                       </li>
                       <li class="nav-item" id="men3" style="display: none;">
-                        <a class="nav-link" href="/html/order/listOrders.html">Listado de Ordenes</a>
+                        <a class="nav-link" href="/html/order/listOrders.html">Listado de ordenes</a>
                       </li>
                       <li class="nav-item" id="men4" style="display: none;">
-                        <a class="nav-link" href="/html/order/createOrder.html">Diligenciar Órdenes</a>
+                        <a class="nav-link" href="/html/order/createOrder.html">Diligenciar ordenes</a>
                       </li>
                 </ul>
                 <span class="navbar-text">
-                    <p><b><span class="glyphicon glyphicon-user" id="user-name"></span></b>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login.html" style="color: rgb(28, 28, 247);">Cerrar Sesión</a>
-                    </p>                    
-                </span>                         
+                  <i class="bi bi-person-fill" style="font-size: 27px;"></i>&nbsp;<span id="user-name" style="cursor: pointer" onclick="openprofile()"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login.html" style="color: rgb(28, 28, 247);">Cerrar Sesión</a></p>                        
+              </span>                          
               </div>
             </div>
         </nav> <br>
@@ -95,6 +96,9 @@
           <br><br><div id="listado"></div>            
       </form>  
     </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 </body>
 <script>
   document.getElementById("user-name").innerHTML = localStorage.getItem('username');

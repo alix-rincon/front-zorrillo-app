@@ -34,7 +34,7 @@ function listAllProductsByOrder(items) {
                             <th scope="row">${items[i].reference}</th>
                             <td>${items[i].category}</td>
                             <td>${items[i].description}</td>
-                            <td>${items[i].availability}</td>   
+                            <td>${traslateStatus(items[i].availability)}</td>   
                             <td>${items[i].price}</td>
                             <td><image src="${items[i].photography}"></td>                                
                             <td><input style="width:75px"  id="input-${items[i].reference}" min=0 class="form-control" type="number"/></td>
@@ -78,14 +78,18 @@ function sendOrder(){
         'quantities': {}        
     };
     $.each($("table span"), function( index, value ) {
+        console.log(value.innerHTML);
         if(parseInt(value.innerHTML) > 0){
             var name_ = value.id.replace("total-","");
             var cant = value.innerHTML;
             data.products[name_] = JSON.parse(sessionStorage.getItem(name_));
             data.quantities[name_] = parseInt(cant);
+            createOrder(data);   
+        }else{
+            alert("Cantidades registradas, deben ser mayor a cero");
         } 
       });
-      createOrder(data);   
+      
     
 }
 

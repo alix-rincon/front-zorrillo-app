@@ -21,6 +21,7 @@ function listAllProducts(items) {
                         <th scope="col">Categoría</th>
                         <th scope="col">Presentación</th>
                         <th scope="col">Cantidad</th>
+                        <th scope="col">Disponible</th>
                         <th scope="col" colspan=2>Acciones</th>
                     </tr>
                 </thead>`;
@@ -33,6 +34,7 @@ function listAllProducts(items) {
                         <td>${items[i].category}</td>
                         <td>${items[i].presentation}</td>   
                         <td>${items[i].quantity}</td>   
+                        <td>${traslateStatus(items[i].status)}</td>  
                         <td style="width:8%"><button type="button" class="btn btn-info btn-sm" onclick="detailClient('${items[i].reference}')">Editar</td>   
                         <td style="width:8%"><button type="button" class="btn btn-sm btn-outline-dark" onclick="deleteFragance('${items[i].reference}')">Eliminar</td>
                     </tr>
